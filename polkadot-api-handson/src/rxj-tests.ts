@@ -8,13 +8,12 @@ const take =
 
       const subscription = source.subscribe({
         next: (v) => {
-          if (count < amount) {
             subscriber.next(v);
             count++;
             if(count === amount) {
               subscriber.complete();
             }
-          }
+          
         },
         error: (e) => subscriber.error(e),
         complete: () => subscriber.complete(),
